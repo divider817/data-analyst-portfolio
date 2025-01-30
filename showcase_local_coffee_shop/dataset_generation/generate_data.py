@@ -1,6 +1,7 @@
 import pandas as pd
 import random
 from datetime import datetime, timedelta
+import os
 
 # STEP 1: IMPORT EXISTING DATA (OPTIONAL)
 # Uncomment the following lines if you have existing datasets
@@ -108,9 +109,17 @@ for _, order in orders_df.iterrows():
 order_details_df = pd.DataFrame(order_details)
 
 # STEP 6: Store data
-# Export the DataFrame to CSV
-orders_df.to_csv("Orders.csv", index=False)
-customers_df.to_csv("Customers.csv", index=False)
-products_df.to_csv("Products.csv", index=False)
-order_details_df.to_csv("OrderDetails.csv", index=False)
 
+# Define the folder path
+folder_path = "E:\github_repos\data-analyst-portfolio\showcase_local_coffee_shop\dataset_generation"
+
+# Create the folder if it doesn't exist
+os.makedirs(folder_path, exist_ok=True)
+
+# Save DataFrames as CSV files
+orders_df.to_csv(f"{folder_path}/Orders.csv", index=False)
+customers_df.to_csv(f"{folder_path}/Customers.csv", index=False)
+products_df.to_csv(f"{folder_path}/Products.csv", index=False)
+order_details_df.to_csv(f"{folder_path}/OrderDetails.csv", index=False)
+
+print(f"Files saved in: {folder_path}")
