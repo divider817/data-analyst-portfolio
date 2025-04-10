@@ -1,0 +1,9 @@
+sources:
+  - name: coffee_shop_raw
+    database: da-portfolio-showcase-1
+    schema: coffee_shop
+    tables:
+      - name: customers
+      - name: order
+      - name: order_details
+      - name: products

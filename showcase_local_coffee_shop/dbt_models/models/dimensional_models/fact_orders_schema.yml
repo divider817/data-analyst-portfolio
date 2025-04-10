@@ -1,0 +1,10 @@
+
+models:
+  - name: fact_orders
+    description: "testing model"
+    columns:
+      - name: order_id
+        description: "The order ID"
+        data_tests:
+          - not_null
+
