@@ -21,7 +21,7 @@ OVERALL_END = datetime.now()  # current date
 
 # Low-frequency window (fewer orders in this period)
 LOW_START = datetime(2022, 2, 25)
-LOW_END = datetime(2025, 5, 31)
+LOW_END = datetime(2022, 5, 31)
 
 # Poisson parameters for order generation:
 # Poisson distribution is used to simulate the random number of orders per day.
@@ -184,7 +184,7 @@ def generate_orders(customers_df, products_df):
             order_date_str = current_day.strftime("%Y-%m-%d")
             order_type = random.choice(["In-store", "Takeaway"])
             # Assign customer only about 10% of the time
-            customer_id = random.choice(customers_df["CustomerId"]) if random.random() > 0.9 else None
+            customer_id = random.choice(customers_df["CustomerId"]) if random.random() > 0.85 else None
             # Assign store based on weighted random selection
             store_id = random.choices(STORE_IDS, weights=STORE_WEIGHTS, k=1)[0]
 
