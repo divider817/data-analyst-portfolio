@@ -4,6 +4,7 @@ sources:
     schema: coffee_shop
     tables:
       - name: customers
-      - name: order
+      - name: orders
       - name: order_details
       - name: products
+      - name: stores

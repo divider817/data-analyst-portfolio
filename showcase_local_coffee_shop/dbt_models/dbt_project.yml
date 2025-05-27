@@ -19,3 +19,5 @@ models:
   coffee_shop:
     dimensional_models:
       +materialized: table
+    data_marts:
+      +materialized: table
