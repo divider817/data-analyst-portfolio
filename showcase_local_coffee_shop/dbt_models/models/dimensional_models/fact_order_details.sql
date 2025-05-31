@@ -23,14 +23,7 @@ WITH prep AS (
         --, dim_date.date_key
         , prep.quantity
         , prep.quantity * dim_product.price AS sub_total
-        , CASE
-            WHEN dim_customer.level_of_discount = '10%' THEN 0.1
-            WHEN dim_customer.level_of_discount = '7%' THEN 0.07
-            WHEN dim_customer.level_of_discount = '5%' THEN 0.05
-            WHEN dim_customer.level_of_discount = '3%' THEN 0.03
-            WHEN dim_customer.level_of_discount = 'None' THEN 0
-            ELSE 0
-        END AS discount_rate
+        , dim_customer.level_of_discount AS discount_rate
     FROM prep
     INNER JOIN {{ ref('dim_order') }} AS dim_order
         ON prep.order_id = dim_order.order_id

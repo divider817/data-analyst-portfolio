@@ -29,7 +29,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 # ----- Data Generation Functions -----
 def generate_customers():
-    customer_levels = ["None", "3%", "5%", "7%", "10%"]
+    customer_levels = ["3%", "5%", "7%", "10%", "15%"]
     customers = []
     customer_reg_days = (OVERALL_END - OVERALL_START).days
     for customer_id in range(1, NUM_CUSTOMERS + 1):
@@ -103,7 +103,7 @@ def generate_orders(customers_df, products_df):
         for _ in range(orders_today):
             order_date = current_day.strftime("%Y-%m-%d")
             order_type = random.choice(["In-store", "Takeaway"])
-            customer_id = random.choice(customers_df["CustomerId"]) if random.random() > 0.85 else None
+            customer_id = random.choice(customers_df["CustomerId"]) if random.random() > 0.7 else None
             store_id = random.choices(STORE_IDS, weights=STORE_WEIGHTS, k=1)[0]
             num_items = random.choices([1, 2, 3, 4, 5], [0.4, 0.3, 0.2, 0.07, 0.03])[0]
             order_subtotal = 0.0
