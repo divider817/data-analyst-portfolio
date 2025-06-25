@@ -23,7 +23,7 @@ WITH prep AS (
         --, dim_date.date_key
         , prep.quantity
         , prep.quantity * dim_product.price AS sub_total
-        , dim_customer.level_of_discount AS discount_rate
+        , ifnull(dim_customer.level_of_discount, 0) AS discount_rate
     FROM prep
     INNER JOIN {{ ref('dim_order') }} AS dim_order
         ON prep.order_id = dim_order.order_id

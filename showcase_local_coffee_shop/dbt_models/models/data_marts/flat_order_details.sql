@@ -29,6 +29,7 @@ categorized_orders AS (
 SELECT
     fact_order_details.order_detail_id
     , fact_order_details.order_date
+    , dim_customer.customer_id
     , dim_customer.registration_date
     , dim_customer.level_of_discount
     , dim_order.order_type
