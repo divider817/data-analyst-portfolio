@@ -6,6 +6,7 @@ WITH order_counts AS (
             WHEN order_date >= DATE_ADD(CURRENT_DATE(), INTERVAL -180 DAY) 
             THEN order_key 
         END) AS orders_past_180_days
+        , MAX(order_date) AS last_order_date
     FROM {{ ref('fact_order_details') }}
     WHERE customer_key IS NOT NULL
     GROUP BY customer_key
@@ -63,10 +64,17 @@ FROM rfm_prep
 
 SELECT
     oc.customer_key
+    , ltv.registration_date
+    , CASE
+        WHEN oc.orders_past_180_days > 0 THEN 1
+        ELSE 0
+    END AS is_active_180d
     , oc.orders_all_time
     , oc.orders_past_180_days
+    , DATE_DIFF(CURRENT_DATE(), oc.last_order_date, DAY) AS days_since_last_order
     , ltv.ltv
     , ltv.customer_age_days
+    , ROUND(ltv.ltv / NULLIF(oc.orders_all_time, 0), 2) AS avg_order_value
     , rfm.r_score
     , rfm.f_score
     , rfm.m_score
