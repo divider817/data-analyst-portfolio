@@ -186,10 +186,16 @@ The project references the following raw tables using `source()`:
 The dbt job is deployed in dbt Cloud and scheduled to run daily after the BigQuery data load is complete. It ensures all downstream dashboards remain current.
 
 **Daily dbt Cloud Job Run (screenshot from dbt Cloud interface):**
-![dbt Cloud Job Run](images/dbt_cloud_job_runs.png)
+<div align="center">
+  <img src="./images/dbt_cloud_job_runs.PNG" alt="dbt Cloud Job Runs" width="800"/>
+</div>
 
-**Model Flow from dbt Docs (auto-generated DAG):** 
-![dbt Docs](images/dbt_model_docs.png)
+
+**Models Flow from dbt Docs (auto-generated DAG):** 
+<div align="center">
+  <img src="./images/dbt_model_docs.PNG" alt="dbt Docs" width="800"/>
+</div>
+
 
 > ℹ️ **Note**  
 > The dbt project is stored in a separate sub repository:  
