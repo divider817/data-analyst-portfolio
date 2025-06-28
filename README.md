@@ -66,7 +66,7 @@ This upcoming showcase will focus on working with real-world data extracted from
 - Lightweight data processing and cleanup
 - Building engaging dashboards with **Tableau**
 
-📁 (Placeholder folder already added — stay tuned!)
+📁 (Placeholder folder — stay tuned!)
 
 ---
 
@@ -74,7 +74,7 @@ This upcoming showcase will focus on working with real-world data extracted from
 
 If you have questions, suggestions, or opportunities, feel free to reach out!
 
-- **LinkedIn**: [Vadym Demchenko](www.linkedin.com/in/vadym-demchenko-a57870151)
+- **LinkedIn**: [Vadym Demchenko](https://www.linkedin.com/in/vadym-demchenko-a57870151/)
 - **UpWork**: [Vadym Demchenko](https://www.upwork.com/freelancers/~010dc7bf506363917e?mp_source=share)
 
 ---
